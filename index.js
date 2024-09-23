@@ -18,6 +18,13 @@ app.put("/register-user",(req,res,next)=>{
        status: false
      });
    }
+   const user = users.filter(u=> u.username === username || u.email === email);
+   if (user) {
+     return res.status(401).json({
+       message: "user alredy exists"
+       status: false
+     });
+   }
    users.push({name, email, password, username });
      res.status(200).json({
        message:"user created successfully",
@@ -79,6 +86,6 @@ app.patch("/update-user",(req,res,next)=>{
      });
 });
 
-app.listen(80,()=>{
-  console.log("app is running at port 80");
+app.listen(8000,()=>{
+  console.log("app is running at port 8000");
 });
