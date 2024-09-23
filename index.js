@@ -86,6 +86,6 @@ app.patch("/update-user",(req,res,next)=>{
      });
 });
 
-app.listen(8000,()=>{
-  console.log("app is running at port 8000");
+app.listen(80,()=>{
+  console.log("app is running at port 80");
 });
