@@ -55,7 +55,7 @@ app.delete("/delete-user",(req,res,next)=>{
 });
 
 app.get("/get-users",(req,res,next)=>{
-   res.statua(200).json(users);
+   res.status(200).json(users);
 });
 app.patch("/update-user",(req,res,next)=>{
    const { username, password } = req.body;
