@@ -21,7 +21,7 @@ app.put("/register-user",(req,res,next)=>{
    const user = users.filter(u=> u.username === username || u.email === email);
    if (user) {
      return res.status(401).json({
-       message: "user alredy exists"
+       message: "user alredy exists",
        status: false
      });
    }
