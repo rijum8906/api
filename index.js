@@ -3,6 +3,9 @@ const users = require("./users.json");
 const cors = require("cors");
 const app = express();
 const fs = require("fs");
+const dbConn = require("./config/db");
+
+dbConn();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
