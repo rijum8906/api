@@ -4,4 +4,5 @@ const registrationController = require("./controller/registrationController")
 
 const Router = express.Router();
 
-Router.post("/login",loginController);
+Router.post("/login-user",loginController);
+Router.put("/register-user",registrationController);
