@@ -9,4 +9,4 @@ const Router = express.Router();
 Router.post('/login-user', loginController);
 Router.put('/register-user', registrationController);
 Router.post('/send-message', verifyToken, messageController.sendMessage);
-Router.get("/receive-message",verifyToken,messageController.receiveMessage)
+Router.post("/get-messages",verifyToken,messageController.receiveMessage)
