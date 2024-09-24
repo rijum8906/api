@@ -17,7 +17,11 @@ module.exports = async (req, res, next) => {
 	// Verify token
 	jwt.verify(token, process.env.jwt_secret_key, (err, decoded) => {
 		if (err) {
-			return res.status(403).json({message: 'Failed to authenticate token'});
+			return res.status(403).json({
+				message: 'Failed to authenticate token',
+				status: false,
+				redirectTo: '/signin',
+			});
 		}
 
 		req.userId = decoded.id;
