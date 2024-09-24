@@ -1,5 +1,4 @@
 const express = require("express");
-const users = require("./users.json");
 const cors = require("cors");
 const app = express();
 const fs = require("fs");
