@@ -17,21 +17,40 @@ const sendMessage = async (req, res, next) => {
 		receiver: receiverId,
 		message,
 	});
-	
+
 	try {
-	  await newChat.save();
-	  return res.status(200).json({
-	    message: "message send successfully",
-	    status: true
-	  });
+		await newChat.save();
+		res.status(200).json({
+			message: 'message send successfully',
+			status: true,
+		});
 	} catch (e) {
-	  return res.status(500).json({
-	    message: "internal server error",
-	    status: false
-	  });
+		res.status(500).json({
+			message: 'internal server error',
+			status: false,
+		});
 	}
 };
 
-const receiveMessage = async () => {};
+const receiveMessage = async (req, res, next) => {
+	const userId = req.userId;
+	const {receiverId} = req.body;
+
+	if (!receiverId || !userId) {
+		return res.status(409).json({
+			messages: 'insufficient data',
+			status: false,
+		});
+	}
+
+	const messages = await Chat.find({
+		$or: [{sender: userId}, {receiver: receiverId}],
+	}).sort({timestamp: -1});
+
+	res.status(200).json({
+		message: 'Messages retrieved successfully',
+		data: messages,
+	});
+};
 
 module.exports = {sendMessage, receiveMessage};
