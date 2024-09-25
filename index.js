@@ -15,6 +15,6 @@ app.use(cors());
 // api routes
 app.use("/api",apiRoutes);
 
-app.listen(80, () => {
+app.listen(8000, () => {
     console.log("app is running at port 80");
 });
