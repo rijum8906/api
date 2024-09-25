@@ -15,7 +15,7 @@ app.use(cors());
 // api routes
 app.use("/api",apiRoutes);
 app.get("/",(req,res,next)=>{
-   res.send("Hello World")
+   res.send("Hello World");
 });
 
 
