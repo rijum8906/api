@@ -19,6 +19,6 @@ app.get("/",(req,res,next)=>{
    res.send("Hello World")
 });
 
-app.listen(8000, () => {
+app.listen(80, () => {
     console.log("app is running at port 80");
 });
