@@ -32,8 +32,8 @@ const sendMessage = async (req, res, next) => {
     const successType = 'message-sent';
     const success = errors[successType];
 
-    res.status(success.statusCode).json({
-      status: error.status,
+    return res.status(success.statusCode).json({
+      status: success.status,
       data: {
         message: success.message,
       },
@@ -41,7 +41,7 @@ const sendMessage = async (req, res, next) => {
   } catch (e) {
     const errorType = 'internal-server-error';
     const error = errors[errorType];
-    res.status(error.statusCode).json({
+    return res.status(error.statusCode).json({
       status: error.status,
       error: {
         type: errorType,
@@ -80,8 +80,8 @@ const receiveMessage = async (req, res, next) => {
     const successType = 'messages-retrieved';
     const success = errors[successType];
 
-    res.status(success.statusCode).json({
-      status: error.status,
+    return res.status(success.statusCode).json({
+      status: success.status,
       data: {
         message: success.message,
         messages,
@@ -90,7 +90,7 @@ const receiveMessage = async (req, res, next) => {
   } catch (e) {
     const errorType = 'internal-server-error';
     const error = errors[errorType];
-    res.status(error.statusCode).json({
+    return res.status(error.statusCode).json({
       status: error.status,
       error: {
         type: errorType,
@@ -101,11 +101,11 @@ const receiveMessage = async (req, res, next) => {
 };
 
 const updateMessage = async (req, res, next) => {
-  const userId = req.user.id;
+  const userId = req.userId;
   const { messageId, updatedMessage } = req.body;
 
-  // Check if messageId is provided
-  if (!messageId) {
+  // Check if messageId and updatedMessage are provided
+  if (!messageId || !updatedMessage) {
     const errorType = 'missing-parameters';
     const error = errors[errorType];
     return res.status(error.statusCode).json({
@@ -118,24 +118,36 @@ const updateMessage = async (req, res, next) => {
   }
 
   try {
-    const message = Chat.findByIdAndUpdate(messageId, { message: updatedMessage }, (err, docs) => {
-      if (err) {
-        const errorType = 'invalid-request';
-      } else {
-        const errorType = 'message-updated';
-      }
+    // Find and update the message
+    const message = await Chat.findOneAndUpdate(
+      { _id: messageId, sender: userId },
+      { message: updatedMessage },
+      { new: true }
+    );
 
+    if (!message) {
+      const errorType = 'user-not-found';
       const error = errors[errorType];
       return res.status(error.statusCode).json({
         status: error.status,
         error: {
           type: errorType,
-          message: error.message,
+          message: "Message not found or you don't have permission to update.",
         },
       });
-    });
+    }
 
-  } catch (err) {
+    const successType = 'message-updated';
+    const success = errors[successType];
+
+    return res.status(success.statusCode).json({
+      status: success.status,
+      data: {
+        message: success.message,
+        updatedMessage: message,
+      },
+    });
+  } catch (e) {
     const errorType = 'invalid-request';
     const error = errors[errorType];
     return res.status(error.statusCode).json({
@@ -148,4 +160,4 @@ const updateMessage = async (req, res, next) => {
   }
 };
 
-module.exports = { sendMessage, receiveMessage };
+module.exports = { sendMessage, receiveMessage, updateMessage };
