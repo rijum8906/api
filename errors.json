@@ -1,79 +1,75 @@
 {
-  "error": {
-    "invalid-token": {
-      "statusCode": 400,
-      "message": "Invalid token. Please provide a valid authentication token."
-    },
-    "missing-token": {
-      "statusCode": 401,
-      "message": "Authorization token missing or invalid"
-    },
-    "expired-token": {
-      "statusCode": 400,
-      "message": "Authorization Token is expired."
-    },
-    "invalid-request": {
-      "statusCode": 400,
-      "message": "Invalid data provided. Please check the input values."
-    },
-    "invalid-request-type": {
-      "statusCode": 405,
-      "message": "Invalid request type. This endpoint only supports specific methods (e.g., GET, POST)."
-    },
-    "user-not-found": {
-      "statusCode": 404,
-      "message": "The requested user was not found in the system."
-    },
-    "user-already-exists": {
-      "statusCode": 409,
-      "message": "The user already exists. Please try a different email or username."
-    },
-    "invalid-credentials": {
-      "statusCode": 401,
-      "message": "Authentication failed. Please check your credentials and try again."
-    },
-    "missing-parameters": {
-      "statusCode": 422,
-      "message": "Required parameters are missing. Please ensure all necessary data is provided."
-    },
-    "account-locked": {
-      "statusCode": 403,
-      "message": "Your account has been locked due to multiple failed login attempts. Please reset your password or contact support."
-    },
-    "internal-server-error": {
-      "statusCode": 500,
-      "message": "An unexpected error occurred on the server. Please try again later."
-    },
-    "rate-limit-exceeded": {
-      "statusCode": 429,
-      "message": "You have made too many requests in a short period. Please wait and try again later."
-    }
+  "invalid-token": {
+    "statusCode": 400,
+    "message": "Invalid token. Please provide a valid authentication token."
   },
-  "success": {
-    "user-registered": {
-      "statusCode": 201,
-      "message": "User registered successfully."
-    },
-    "user-logged-in": {
-      "statusCode": 200,
-      "message": "Login successful."
-    },
-    "user-updated": {
-      "statusCode": 200,
-      "message": "User information updated successfully."
-    },
-    "password-changed": {
-      "statusCode": 200,
-      "message": "Password changed successfully."
-    },
-    "user-logged-out": {
-      "statusCode": 200,
-      "message": "Logout successful."
-    },
-    "token-refreshed": {
-      "statusCode": 200,
-      "message": "Token refreshed successfully."
-    }
+  "missing-token": {
+    "statusCode": 401,
+    "message": "Authorization token missing or invalid"
+  },
+  "expired-token": {
+    "statusCode": 400,
+    "message": "Authorization Token is expired."
+  },
+  "invalid-request": {
+    "statusCode": 400,
+    "message": "Invalid data provided. Please check the input values."
+  },
+  "invalid-request-type": {
+    "statusCode": 405,
+    "message": "Invalid request type. This endpoint only supports specific methods (e.g., GET, POST)."
+  },
+  "user-not-found": {
+    "statusCode": 404,
+    "message": "The requested user was not found in the system."
+  },
+  "user-already-exists": {
+    "statusCode": 409,
+    "message": "The user already exists. Please try a different email or username."
+  },
+  "invalid-credentials": {
+    "statusCode": 401,
+    "message": "Authentication failed. Please check your credentials and try again."
+  },
+  "missing-parameters": {
+    "statusCode": 422,
+    "message": "Required parameters are missing. Please ensure all necessary data is provided."
+  },
+  "account-locked": {
+    "statusCode": 403,
+    "message": "Your account has been locked due to multiple failed login attempts. Please reset your password or contact support."
+  },
+  "internal-server-error": {
+    "statusCode": 500,
+    "message": "An unexpected error occurred on the server. Please try again later."
+  },
+  "rate-limit-exceeded": {
+    "statusCode": 429,
+    "message": "You have made too many requests in a short period. Please wait and try again later."
+  },
+  "user-registered": {
+    "statusCode": 201,
+    "message": "User registered successfully."
+  },
+  "user-logged-in": {
+    "statusCode": 200,
+    "message": "Login successful."
+  },
+  "user-updated": {
+    "statusCode": 200,
+    "message": "User information updated successfully."
+  },
+  "password-changed": {
+    "statusCode": 200,
+    "message": "Password changed successfully."
+  },
+  "user-logged-out": {
+    "statusCode": 200,
+    "message": "Logout successful."
+  },
+  "token-refreshed": {
+    "statusCode": 200,
+    "message": "Token refreshed successfully."
   },
   "message-sent": {
     "statusCode": 201,
@@ -82,6 +78,9 @@
   "messages-retrieved": {
     "statusCode": 200,
     "message": "Messages retrieved successfully."
+  },
+  "message-updated": {
+    "statusCode": 200,
+    "message": "Messages updated successfully."
   }
-
 }
