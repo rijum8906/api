@@ -1,86 +1,107 @@
 {
   "invalid-token": {
     "statusCode": 400,
-    "message": "Invalid token. Please provide a valid authentication token."
+    "message": "Invalid token. Please provide a valid authentication token.",
+    "status": false
   },
   "missing-token": {
     "statusCode": 401,
-    "message": "Authorization token missing or invalid"
+    "message": "Authorization token missing or invalid",
+    "status": false
   },
   "expired-token": {
     "statusCode": 400,
-    "message": "Authorization Token is expired."
+    "message": "Authorization Token is expired.",
+    "status": false
   },
   "invalid-request": {
     "statusCode": 400,
-    "message": "Invalid data provided. Please check the input values."
+    "message": "Invalid data provided. Please check the input values.",
+    "status": false
   },
   "invalid-request-type": {
     "statusCode": 405,
-    "message": "Invalid request type. This endpoint only supports specific methods (e.g., GET, POST)."
+    "message": "Invalid request type. This endpoint only supports specific methods (e.g., GET, POST).",
+    "status": false
   },
   "user-not-found": {
     "statusCode": 404,
-    "message": "The requested user was not found in the system."
+    "message": "The requested user was not found in the system.",
+    "status": false
   },
   "user-already-exists": {
     "statusCode": 409,
-    "message": "The user already exists. Please try a different email or username."
+    "message": "The user already exists. Please try a different email or username.",
+    "status": false
   },
   "invalid-credentials": {
     "statusCode": 401,
-    "message": "Authentication failed. Please check your credentials and try again."
+    "message": "Authentication failed. Please check your credentials and try again.",
+    "status": false
   },
   "missing-parameters": {
     "statusCode": 422,
-    "message": "Required parameters are missing. Please ensure all necessary data is provided."
+    "message": "Required parameters are missing. Please ensure all necessary data is provided.",
+    "status": false
   },
   "account-locked": {
     "statusCode": 403,
-    "message": "Your account has been locked due to multiple failed login attempts. Please reset your password or contact support."
+    "message": "Your account has been locked due to multiple failed login attempts. Please reset your password or contact support.",
+    "status": false
   },
   "internal-server-error": {
     "statusCode": 500,
-    "message": "An unexpected error occurred on the server. Please try again later."
+    "message": "An unexpected error occurred on the server. Please try again later.",
+    "status": false
   },
   "rate-limit-exceeded": {
     "statusCode": 429,
-    "message": "You have made too many requests in a short period. Please wait and try again later."
+    "message": "You have made too many requests in a short period. Please wait and try again later.",
+    "status": false
   },
   "user-registered": {
     "statusCode": 201,
-    "message": "User registered successfully."
+    "message": "User registered successfully.",
+    "status": true
   },
   "user-logged-in": {
     "statusCode": 200,
-    "message": "Login successful."
+    "message": "Login successful.",
+    "status": true
   },
   "user-updated": {
     "statusCode": 200,
-    "message": "User information updated successfully."
+    "message": "User information updated successfully.",
+    "status": true
   },
   "password-changed": {
     "statusCode": 200,
-    "message": "Password changed successfully."
+    "message": "Password changed successfully.",
+    "status": true
   },
   "user-logged-out": {
     "statusCode": 200,
-    "message": "Logout successful."
+    "message": "Logout successful.",
+    "status": true
   },
   "token-refreshed": {
     "statusCode": 200,
-    "message": "Token refreshed successfully."
+    "message": "Token refreshed successfully.",
+    "status": true
   },
   "message-sent": {
     "statusCode": 201,
-    "message": "Message sent successfully."
+    "message": "Message sent successfully.",
+    "status": true
   },
   "messages-retrieved": {
     "statusCode": 200,
-    "message": "Messages retrieved successfully."
+    "message": "Messages retrieved successfully.",
+    "status": true
   },
   "message-updated": {
     "statusCode": 200,
-    "message": "Messages updated successfully."
+    "message": "Messages updated successfully.",
+    "status": true
   }
 }
