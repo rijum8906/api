@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
 		};
 
 		return res.status(error.statusCode).json({
-			status: false,
+			status: error.status,
 			error: {
 				type: errorType,
 				message: error.message,
@@ -39,7 +39,7 @@ module.exports = async (req, res, next) => {
 				message: 'Failed to authenticate token',
 			};
 			return res.status(error.statusCode).json({
-				status: false,
+				status: error.status,
 				error: {
 					type: errorType,
 					message: error.message,
