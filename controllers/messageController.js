@@ -2,7 +2,7 @@ const Chat = require('./../models/chatModel');
 const errors = require('./../errors.json');
 
 const sendMessage = async (req, res, next) => {
-  const userId = req.userId;
+  const userId = req.user.id;
   const { message, receiverId } = req.body;
 
   // Check if message and receiverId are provided
@@ -52,7 +52,7 @@ const sendMessage = async (req, res, next) => {
 };
 
 const receiveMessage = async (req, res, next) => {
-  const userId = req.userId;
+  const userId = req.user.id;
   const { receiverId } = req.body;
 
   // Check if receiverId is provided
@@ -101,7 +101,7 @@ const receiveMessage = async (req, res, next) => {
 };
 
 const updateMessage = async (req, res, next) => {
-  const userId = req.userId;
+  const userId = req.user.id;
   const { messageId, updatedMessage } = req.body;
 
   // Check if messageId and updatedMessage are provided
