@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
 	// Check if the authorization header is present and starts with 'Bearer'
 	if (!authHeader || !authHeader.startsWith('Bearer ')) {
 		const errorType = 'missing-token'; // Assuming this error type exists in your errors.json
-		const error = errors.error[errorType] || {
+		const error = errors[errorType] || {
 			statusCode: 401,
 			message: 'Authorization token missing or invalid',
 		};
@@ -34,7 +34,7 @@ module.exports = async (req, res, next) => {
 			} else {
 				errorType = 'invalid-token';
 			}
-			const error = errors.error[errorType] || {
+			const error = errors[errorType] || {
 				statusCode: 403,
 				message: 'Failed to authenticate token',
 			};
@@ -49,6 +49,7 @@ module.exports = async (req, res, next) => {
 		}
 
 		// If the token is valid, attach the decoded user ID to the request object
+		req.user = decoded;
 		next(); // Move to the next middleware or route handler
 	});
 };
